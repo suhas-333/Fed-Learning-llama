@@ -1,0 +1,49 @@
+# Client_1/tep_documentation.txt (and Client_2/)
+
+TEP Variable Meanings (Indices 0-51)
+
+--- Process Measurements (XMEAS) ---
+Index 0-21: General Process Variables (Feeds, Steam, etc.)
+  - 0: A Feed (stream 1)
+  - 1: D Feed (stream 2)
+  - 2: E Feed (stream 3)
+  - 3: A and C Feed (stream 4)
+  - 4: Recycle Flow (stream 8)
+  - 5: Reactor Vapour Outlet Flow (stream 11)
+  - 6: Purge Gas Flow (stream 9)
+  - 7: Separator Liquid Flow (stream 10)
+  - 8: Stripper Liquid Product Flow (stream 12)
+  - 9: Reactor Pressure
+  - 10: Reactor Level
+  - 11: Reactor Temperature
+  - 12-14: Purge Gas Composition (A, B, C)
+  - 15-18: Outlet Vapour Composition (A, B, C, D, E, F)
+  - 19-21: Reactor Cooling Water Outlet Temperature
+
+Index 22-40: Agitator and Valve Variables
+  - 22: Reactor Cooling Water Flow
+  - 23: Condenser Cooling Water Flow
+  - 24: Agitator Speed
+  - 25-32: Steam Valve Positions
+  - 33-35: Stripper Column Temperatures
+  - 36: Stripper Steam Flow
+  - 37-40: Compressor Work and Recycle Valve
+
+--- Manipulated Variables (XMV) ---
+Index 41-51: Control Variables
+  - 41: D Feed Flow (stream 2)
+  - 42: E Feed Flow (stream 3)
+  - 43: A Feed Flow (stream 1)
+  - 44: A and C Feed Flow (stream 4)
+  - 45: Recycle Valve
+  - 46: Purge Valve
+  - 47: Separator Pot Temperature
+  - 48: Stripper Level
+  - 49: Stripper Steam Valve
+  - 50: Reactor Cooling Water Flow
+  - 51: Condenser Cooling Water Flow
+
+--- Known Fault Information ---
+- Fault 8: Involves a random variation in the A, B, C feed composition. This would primarily affect variables related to feed streams and reactor conditions.
+- Fault 9: Involves a random variation in the D feed temperature.
+- Fault 15: Involves a condenser cooling water valve sticking. This would affect condenser and reactor cooling variables.

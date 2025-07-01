@@ -1,0 +1,1018 @@
+(base) (server) suhasp@Macbook-Air-M1 Server % python3 server.py
+=== TEP Federated Learning Server ===
+Checking for LLM model...
+[LLM] Loading local TinyLlama model... This may take a moment.
+[LLM] Model loaded successfully.
+Server ready!
+
+=== TEP FL Server Menu ===
+Status: 0/2 clients | Models: 0
+1. Start Training
+2. List Models
+3. Exit
+Choice: 1
+
+=== Training Configuration ===
+1. Available models:
+   - cnn_lstm_attention (research-proven, recommended)
+   - simple_cnn_lstm (simpler version)
+   Choose model (1 or 2): 1
+
+2. Choose Scaling Strategy:
+   - none: No feature scaling will be applied.
+   - standard: Apply StandardScaler to all 52 features.
+   - llm: Let each client's LLM decide the best scaler for each feature.
+   Choose scaling ('none', 'standard', or 'llm'): llm
+
+--- Configuration Summary ---
+  Model: cnn_lstm_attention
+  Features: All 52 features
+  Scaling: llm_smart_scale
+
+Start training? (yes/no): yes
+
+*** FEDERATED TRAINING STARTED ***
+INFO :      Starting Flower server, config: num_rounds=10, no round_timeout
+INFO :      Flower ECE: gRPC server running (10 rounds), SSL is disabled
+INFO :      [INIT]
+INFO :      Requesting initial parameters from one random client
+INFO :      Received initial parameters from one random client
+INFO :      Evaluating initial global parameters
+INFO :      
+INFO :      [ROUND 1]
+INFO :      configure_fit: strategy sampled 2 clients (out of 2)
+INFO :      aggregate_fit: received 2 results and 0 failures
+INFO :      configure_evaluate: strategy sampled 2 clients (out of 2)
+INFO :      aggregate_evaluate: received 2 results and 0 failures
+WARNING :   No evaluate_metrics_aggregation_fn provided
+INFO :      
+INFO :      [ROUND 2]
+INFO :      configure_fit: strategy sampled 2 clients (out of 2)
+INFO :      aggregate_fit: received 2 results and 0 failures
+INFO :      configure_evaluate: strategy sampled 2 clients (out of 2)
+INFO :      aggregate_evaluate: received 2 results and 0 failures
+INFO :      
+INFO :      [ROUND 3]
+INFO :      configure_fit: strategy sampled 2 clients (out of 2)
+INFO :      aggregate_fit: received 2 results and 0 failures
+INFO :      configure_evaluate: strategy sampled 2 clients (out of 2)
+INFO :      aggregate_evaluate: received 2 results and 0 failures
+INFO :      
+INFO :      [ROUND 4]
+INFO :      configure_fit: strategy sampled 2 clients (out of 2)
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+E0000 00:00:1749875676.929201 11990218 tcp_posix.cc:594] recvmsg encountered uncommon error: Message too long
+INFO :      aggregate_fit: received 2 results and 0 failures
+INFO :      configure_evaluate: strategy sampled 2 clients (out of 2)
+INFO :      aggregate_evaluate: received 2 results and 0 failures
+INFO :      
+INFO :      [ROUND 5]
+INFO :      configure_fit: strategy sampled 2 clients (out of 2)
+E0000 00:00:1749875745.381167 11990218 tcp_posix.cc:594] recvmsg encountered uncommon error: Message too long
+INFO :      aggregate_fit: received 2 results and 0 failures
+INFO :      configure_evaluate: strategy sampled 2 clients (out of 2)
+INFO :      aggregate_evaluate: received 2 results and 0 failures
+INFO :      
+INFO :      [ROUND 6]
+INFO :      configure_fit: strategy sampled 2 clients (out of 2)
+INFO :      aggregate_fit: received 2 results and 0 failures
+INFO :      configure_evaluate: strategy sampled 2 clients (out of 2)
+INFO :      aggregate_evaluate: received 2 results and 0 failures
+INFO :      
+INFO :      [ROUND 7]
+INFO :      configure_fit: strategy sampled 2 clients (out of 2)
+INFO :      aggregate_fit: received 2 results and 0 failures
+INFO :      configure_evaluate: strategy sampled 2 clients (out of 2)
+INFO :      aggregate_evaluate: received 2 results and 0 failures
+INFO :      
+INFO :      [ROUND 8]
+INFO :      configure_fit: strategy sampled 2 clients (out of 2)
+E0000 00:00:1749875923.117811 11990218 tcp_posix.cc:594] recvmsg encountered uncommon error: Message too long
+INFO :      aggregate_fit: received 2 results and 0 failures
+INFO :      configure_evaluate: strategy sampled 2 clients (out of 2)
+INFO :      aggregate_evaluate: received 2 results and 0 failures
+INFO :      
+INFO :      [ROUND 9]
+INFO :      configure_fit: strategy sampled 2 clients (out of 2)
+INFO :      aggregate_fit: received 2 results and 0 failures
+INFO :      configure_evaluate: strategy sampled 2 clients (out of 2)
+INFO :      aggregate_evaluate: received 2 results and 0 failures
+INFO :      
+INFO :      [ROUND 10]
+INFO :      configure_fit: strategy sampled 2 clients (out of 2)
+E0000 00:00:1749876051.768627 11990218 tcp_posix.cc:594] recvmsg encountered uncommon error: Message too long
+INFO :      aggregate_fit: received 2 results and 0 failures
+INFO :      configure_evaluate: strategy sampled 2 clients (out of 2)
+INFO :      aggregate_evaluate: received 2 results and 0 failures
+INFO :      
+INFO :      [SUMMARY]
+INFO :      Run finished 10 rounds in 581.19s
+INFO :      History (loss, distributed):
+INFO :      	('\tround 1: 3.1814061403274536\n'
+INFO :      	 '\tround 2: 2.8241517543792725\n'
+INFO :      	 '\tround 3: 3.0080413818359375\n'
+INFO :      	 '\tround 4: 2.9020872116088867\n'
+INFO :      	 '\tround 5: 3.3720990419387817\n'
+INFO :      	 '\tround 6: 3.6518114805221558\n'
+INFO :      	 '\tround 7: 3.9119627475738525\n'
+INFO :      	 '\tround 8: 3.492301821708679\n'
+INFO :      	 '\tround 9: 4.719367504119873\n'
+INFO :      	 '\tround 10: 3.3434064388275146\n')History (metrics, distributed, fit):
+INFO :      	{'val_accuracy': [(1, 0.08675798773765564),
+INFO :      	                  (2, 0.08675798773765564),
+INFO :      	                  (3, 0.08675798773765564),
+INFO :      	                  (4, 0.08675798773765564),
+INFO :      	                  (5, 0.08675798773765564),
+INFO :      	                  (6, 0.08675798773765564),
+INFO :      	                  (7, 0.08675798773765564),
+INFO :      	                  (8, 0.08675798773765564),
+INFO :      	                  (9, 0.08675798773765564),
+INFO :      	                  (10, 0.08675798773765564)]}
+INFO :      
+
+*** TRAINING COMPLETE ***
+Model saved as: model_1
+
+=== TEP FL Server Menu ===
+Status: 0/2 clients | Models: 1
+1. Start Training
+2. List Models
+3. Exit
+Choice: 2
+
+=== Trained Models ===
+  model_1: Model=cnn_lstm_attention, Scaling=llm_smart_scale, Final Accuracy=N/A
+
+=== TEP FL Server Menu ===
+Status: 0/2 clients | Models: 1
+1. Start Training
+2. List Models
+3. Exit
+Choice: 3
+Goodbye!
+(base) (server) suhasp@Macbook-Air-M1 Server % 
+
+
+
+
+
+
+
+
+(client_1) (base) suhasp@Macbook-Air-M1 Client_1 % python3 Client.py --client_id 1
+=== Starting Client 1 ===
+
+=== Client 1 Ready ===
+Waiting for training requests...
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1749875473.715845 11990413 fork_posix.cc:75] Other threads are currently calling into gRPC, skipping fork() handlers
+INFO :      
+INFO :      [RUN 0, ROUND ]
+INFO :      Received: get_parameters message 62f960a5-6d18-46c0-85d3-838841002acd
+[Client 1] Server requesting parameters...
+[Client 1] Preparing data for config: {'model_type': 'cnn_lstm_attention', 'scaling_strategy': 'standard'}
+[Data] Loading from: /Users/suhasp/Suhas/Python/Fedrated-Learning-flwr/Client_1/local_data
+[Data] Normal data - Train: (200, 52), Test: (200, 52)
+[Data] Loaded 21 fault types
+[Data] Final shapes - Train: (4400, 52), Test: (4400, 52)
+[Data] Confirmed: Using all 52 TEP features (BALANCED DATASET)
+[Data] BALANCED Training class distribution: {0: 200, 1: 200, 2: 200, 3: 200, 4: 200, 5: 200, 6: 200, 7: 200, 8: 200, 9: 200, 10: 200, 11: 200, 12: 200, 13: 200, 14: 200, 15: 200, 16: 200, 17: 200, 18: 200, 19: 200, 20: 200, 21: 200}
+[Data] Total training samples: 4400, Classes: 22
+[Client 1] Applying StandardScaler to all features.
+[Data] Created 4380 sequences of shape (20, 52) -> (4380,)
+[Data] Created 4380 sequences of shape (20, 52) -> (4380,)
+[Client 1] Data ready.
+[Client 1] Creating cnn_lstm_attention model...
+[Client 1] Model created successfully.
+INFO :      Sent reply
+INFO :      
+INFO :      [RUN 0, ROUND ]
+INFO :      Received: train message 83afedd4-a5f1-4a04-8d10-dd255b8ae97d
+
+*** TRAINING REQUEST RECEIVED ***
+Start training? (yes/no): yes
+[Client 1] Training approved.
+[Client 1] LLM is deciding on a scaling strategy for variable types...
+[LLM] Loading local TinyLlama model... This may take a moment.
+[LLM] Model loaded successfully.
+[Client 1] LLM created a valid type-based scaling plan.
+[Client 1] Preparing data for config: {'scaling_strategy': 'llm_smart_scale', 'server_round': 1, 'model_type': 'cnn_lstm_attention', 'feature_selection_strategy': 'all'}
+[Data] Loading from: /Users/suhasp/Suhas/Python/Fedrated-Learning-flwr/Client_1/local_data
+[Data] Normal data - Train: (200, 52), Test: (200, 52)
+[Data] Loaded 21 fault types
+[Data] Final shapes - Train: (4400, 52), Test: (4400, 52)
+[Data] Confirmed: Using all 52 TEP features (BALANCED DATASET)
+[Data] BALANCED Training class distribution: {0: 200, 1: 200, 2: 200, 3: 200, 4: 200, 5: 200, 6: 200, 7: 200, 8: 200, 9: 200, 10: 200, 11: 200, 12: 200, 13: 200, 14: 200, 15: 200, 16: 200, 17: 200, 18: 200, 19: 200, 20: 200, 21: 200}
+[Data] Total training samples: 4400, Classes: 22
+[Client 1] Applying user-approved LLM scaling plan...
+[Data] Created 4380 sequences of shape (20, 52) -> (4380,)
+[Data] Created 4380 sequences of shape (20, 52) -> (4380,)
+[Client 1] Data ready.
+[Client 1] Creating cnn_lstm_attention model...
+
+--- LLM SCALING PLAN REVIEW ---
+The LLM has proposed the following scaling plan:
+{
+  "composition": "standard",
+  "flow_rate": "minmax",
+  "level": "minmax",
+  "manipulated_variable": "minmax",
+  "power": "standard",
+  "pressure": "standard",
+  "temperature": "standard"
+}
+Approve this scaling plan? (yes/no): [Client 1] Model created successfully.
+[Client 1] Round 1 - Training started...
+yes
+[Agent] Scaling plan approved.
+[Client 1] Round 1 - Training complete. Accuracy: 0.667, Val Acc: 0.087
+INFO :      Sent reply
+INFO :      
+INFO :      [RUN 0, ROUND ]
+INFO :      Received: evaluate message 358c914e-f70a-4d21-a269-279d1cbe98b2
+[Client 1] Round 1 - Evaluating...
+[Client 1] Round 1 - Test accuracy: 0.237
+INFO :      Sent reply
+INFO :      
+INFO :      [RUN 0, ROUND ]
+INFO :      Received: train message 46c67c35-f89e-4d8f-8f18-aef26b68378a
+[Client 1] LLM is deciding on a scaling strategy for variable types...
+[Client 1 WARNING] LLM scaling failed (LLM did not return a valid plan for variable types.).
+[Client 1] Preparing data for config: {'scaling_strategy': 'llm_smart_scale', 'server_round': 2, 'model_type': 'cnn_lstm_attention', 'feature_selection_strategy': 'all'}
+[Data] Loading from: /Users/suhasp/Suhas/Python/Fedrated-Learning-flwr/Client_1/local_data
+[Data] Normal data - Train: (200, 52), Test: (200, 52)
+[Data] Loaded 21 fault types
+[Data] Final shapes - Train: (4400, 52), Test: (4400, 52)
+[Data] Confirmed: Using all 52 TEP features (BALANCED DATASET)
+[Data] BALANCED Training class distribution: {0: 200, 1: 200, 2: 200, 3: 200, 4: 200, 5: 200, 6: 200, 7: 200, 8: 200, 9: 200, 10: 200, 11: 200, 12: 200, 13: 200, 14: 200, 15: 200, 16: 200, 17: 200, 18: 200, 19: 200, 20: 200, 21: 200}
+[Data] Total training samples: 4400, Classes: 22
+[Client 1] No LLM plan approved. Applying StandardScaler to all features as a fallback.
+[Data] Created 4380 sequences of shape (20, 52) -> (4380,)
+[Data] Created 4380 sequences of shape (20, 52) -> (4380,)
+[Client 1] Data ready.
+[Client 1] Creating cnn_lstm_attention model...
+[Client 1] Model created successfully.
+[Client 1] Round 2 - Training started...
+[Client 1] Round 2 - Training complete. Accuracy: 0.741, Val Acc: 0.087
+INFO :      Sent reply
+E0000 00:00:1749875575.834855 11990441 tcp_posix.cc:594] recvmsg encountered uncommon error: Message too long
+INFO :      
+INFO :      [RUN 0, ROUND ]
+INFO :      Received: evaluate message eb80d314-363e-4a03-b4dd-ac047e293e3d
+[Client 1] Round 2 - Evaluating...
+[Client 1] Round 2 - Test accuracy: 0.311
+INFO :      Sent reply
+INFO :      
+INFO :      [RUN 0, ROUND ]
+INFO :      Received: train message 1370abc2-c2a5-4018-96f9-47183d2085d2
+[Client 1] LLM is deciding on a scaling strategy for variable types...
+[Client 1] LLM created a valid type-based scaling plan.
+[Client 1] Preparing data for config: {'scaling_strategy': 'llm_smart_scale', 'server_round': 3, 'model_type': 'cnn_lstm_attention', 'feature_selection_strategy': 'all'}
+[Data] Loading from: /Users/suhasp/Suhas/Python/Fedrated-Learning-flwr/Client_1/local_data
+[Data] Normal data - Train: (200, 52), Test: (200, 52)
+[Data] Loaded 21 fault types
+[Data] Final shapes - Train: (4400, 52), Test: (4400, 52)
+[Data] Confirmed: Using all 52 TEP features (BALANCED DATASET)
+[Data] BALANCED Training class distribution: {0: 200, 1: 200, 2: 200, 3: 200, 4: 200, 5: 200, 6: 200, 7: 200, 8: 200, 9: 200, 10: 200, 11: 200, 12: 200, 13: 200, 14: 200, 15: 200, 16: 200, 17: 200, 18: 200, 19: 200, 20: 200, 21: 200}
+[Data] Total training samples: 4400, Classes: 22
+[Client 1] Applying user-approved LLM scaling plan...
+[Data] Created 4380 sequences of shape (20, 52) -> (4380,)
+[Data] Created 4380 sequences of shape (20, 52) -> (4380,)
+[Client 1] Data ready.
+[Client 1] Creating cnn_lstm_attention model...
+
+--- LLM SCALING PLAN REVIEW ---
+The LLM has proposed the following scaling plan:
+{
+  "composition": "standard",
+  "flow_rate": "minmax",
+  "level": "minmax",
+  "manipulated_variable": "minmax",
+  "power": "standard",
+  "pressure": "standard",
+  "temperature": "standard"
+}
+Approve this scaling plan? (yes/no): [Client 1] Model created successfully.
+[Client 1] Round 3 - Training started...
+yes
+[Agent] Scaling plan approved.
+[Client 1] Round 3 - Training complete. Accuracy: 0.595, Val Acc: 0.087
+INFO :      Sent reply
+yes
+INFO :      
+INFO :      [RUN 0, ROUND ]
+INFO :      Received: evaluate message fdda76e0-28f3-4e66-8377-353ae1a5bf54
+[Client 1] Round 3 - Evaluating...
+[Client 1] Round 3 - Test accuracy: 0.283
+INFO :      Sent reply
+INFO :      
+INFO :      [RUN 0, ROUND ]
+INFO :      Received: train message 778c17d9-04cb-4255-a542-e9cec9dd17f5
+[Client 1] LLM is deciding on a scaling strategy for variable types...
+[Client 1] LLM created a valid type-based scaling plan.
+[Client 1] Preparing data for config: {'scaling_strategy': 'llm_smart_scale', 'server_round': 4, 'model_type': 'cnn_lstm_attention', 'feature_selection_strategy': 'all'}
+[Data] Loading from: /Users/suhasp/Suhas/Python/Fedrated-Learning-flwr/Client_1/local_data
+[Data] Normal data - Train: (200, 52), Test: (200, 52)
+[Data] Loaded 21 fault types
+[Data] Final shapes - Train: (4400, 52), Test: (4400, 52)
+[Data] Confirmed: Using all 52 TEP features (BALANCED DATASET)
+[Data] BALANCED Training class distribution: {0: 200, 1: 200, 2: 200, 3: 200, 4: 200, 5: 200, 6: 200, 7: 200, 8: 200, 9: 200, 10: 200, 11: 200, 12: 200, 13: 200, 14: 200, 15: 200, 16: 200, 17: 200, 18: 200, 19: 200, 20: 200, 21: 200}
+[Data] Total training samples: 4400, Classes: 22
+[Client 1] Applying user-approved LLM scaling plan...
+[Data] Created 4380 sequences of shape (20, 52) -> (4380,)
+[Data] Created 4380 sequences of shape (20, 52) -> (4380,)
+[Client 1] Data ready.
+[Client 1] Creating cnn_lstm_attention model...
+[Client 1] Model created successfully.
+[Client 1] Round 4 - Training started...
+
+--- LLM SCALING PLAN REVIEW ---
+The LLM has proposed the following scaling plan:
+{
+  "composition": "standard",
+  "flow_rate": "minmax",
+  "level": "minmax",
+  "manipulated_variable": "minmax",
+  "power": "standard",
+  "pressure": "standard",
+  "temperature": "standard"
+}
+Approve this scaling plan? (yes/no): [Agent] Scaling plan approved.
+yes
+[Client 1] Round 4 - Training complete. Accuracy: 0.687, Val Acc: 0.087
+INFO :      Sent reply
+INFO :      
+INFO :      [RUN 0, ROUND ]
+INFO :      Received: evaluate message 8730c12e-22e9-4276-83b8-1b679f194887
+[Client 1] Round 4 - Evaluating...
+[Client 1] Round 4 - Test accuracy: 0.416
+INFO :      Sent reply
+INFO :      
+INFO :      [RUN 0, ROUND ]
+INFO :      Received: train message 4d7b38da-d4ef-4116-9521-c00b59e01bb3
+[Client 1] LLM is deciding on a scaling strategy for variable types...
+[Client 1] LLM created a valid type-based scaling plan.
+[Client 1] Preparing data for config: {'scaling_strategy': 'llm_smart_scale', 'server_round': 5, 'model_type': 'cnn_lstm_attention', 'feature_selection_strategy': 'all'}
+[Data] Loading from: /Users/suhasp/Suhas/Python/Fedrated-Learning-flwr/Client_1/local_data
+[Data] Normal data - Train: (200, 52), Test: (200, 52)
+[Data] Loaded 21 fault types
+[Data] Final shapes - Train: (4400, 52), Test: (4400, 52)
+[Data] Confirmed: Using all 52 TEP features (BALANCED DATASET)
+[Data] BALANCED Training class distribution: {0: 200, 1: 200, 2: 200, 3: 200, 4: 200, 5: 200, 6: 200, 7: 200, 8: 200, 9: 200, 10: 200, 11: 200, 12: 200, 13: 200, 14: 200, 15: 200, 16: 200, 17: 200, 18: 200, 19: 200, 20: 200, 21: 200}
+[Data] Total training samples: 4400, Classes: 22
+[Client 1] Applying user-approved LLM scaling plan...
+[Data] Created 4380 sequences of shape (20, 52) -> (4380,)
+[Data] Created 4380 sequences of shape (20, 52) -> (4380,)
+[Client 1] Data ready.
+[Client 1] Creating cnn_lstm_attention model...
+[Client 1] Model created successfully.
+[Client 1] Round 5 - Training started...
+
+--- LLM SCALING PLAN REVIEW ---
+The LLM has proposed the following scaling plan:
+{
+  "composition": "standard",
+  "flow_rate": "minmax",
+  "level": "minmax",
+  "manipulated_variable": "minmax",
+  "power": "standard",
+  "pressure": "standard",
+  "temperature": "standard"
+}
+Approve this scaling plan? (yes/no): [Agent] Scaling plan approved.
+yes
+[Client 1] Round 5 - Training complete. Accuracy: 0.721, Val Acc: 0.087
+INFO :      Sent reply
+INFO :      
+INFO :      [RUN 0, ROUND ]
+INFO :      Received: evaluate message fbda19a2-c354-490f-bfb0-fc086db630f7
+[Client 1] Round 5 - Evaluating...
+[Client 1] Round 5 - Test accuracy: 0.457
+INFO :      Sent reply
+INFO :      
+INFO :      [RUN 0, ROUND ]
+INFO :      Received: train message 827dd3d6-e9a6-41eb-ad37-2eaab7e516de
+[Client 1] LLM is deciding on a scaling strategy for variable types...
+[Client 1] LLM created a valid type-based scaling plan.
+[Client 1] Preparing data for config: {'scaling_strategy': 'llm_smart_scale', 'server_round': 6, 'model_type': 'cnn_lstm_attention', 'feature_selection_strategy': 'all'}
+[Data] Loading from: /Users/suhasp/Suhas/Python/Fedrated-Learning-flwr/Client_1/local_data
+[Data] Normal data - Train: (200, 52), Test: (200, 52)
+[Data] Loaded 21 fault types
+[Data] Final shapes - Train: (4400, 52), Test: (4400, 52)
+[Data] Confirmed: Using all 52 TEP features (BALANCED DATASET)
+[Data] BALANCED Training class distribution: {0: 200, 1: 200, 2: 200, 3: 200, 4: 200, 5: 200, 6: 200, 7: 200, 8: 200, 9: 200, 10: 200, 11: 200, 12: 200, 13: 200, 14: 200, 15: 200, 16: 200, 17: 200, 18: 200, 19: 200, 20: 200, 21: 200}
+[Data] Total training samples: 4400, Classes: 22
+[Client 1] Applying user-approved LLM scaling plan...
+[Data] Created 4380 sequences of shape (20, 52) -> (4380,)
+[Data] Created 4380 sequences of shape (20, 52) -> (4380,)
+[Client 1] Data ready.
+[Client 1] Creating cnn_lstm_attention model...
+[Client 1] Model created successfully.
+[Client 1] Round 6 - Training started...
+
+--- LLM SCALING PLAN REVIEW ---
+The LLM has proposed the following scaling plan:
+{
+  "composition": "standard",
+  "flow_rate": "minmax",
+  "level": "minmax",
+  "manipulated_variable": "minmax",
+  "power": "standard",
+  "pressure": "standard",
+  "temperature": "standard"
+}
+Approve this scaling plan? (yes/no): [Agent] Scaling plan approved.
+yes
+yes
+[Client 1] Round 6 - Training complete. Accuracy: 0.822, Val Acc: 0.087
+INFO :      Sent reply
+E0000 00:00:1749875812.486661 11990441 tcp_posix.cc:594] recvmsg encountered uncommon error: Message too long
+INFO :      
+INFO :      [RUN 0, ROUND ]
+INFO :      Received: evaluate message f8a21d70-364e-4c7d-9721-37e75133d813
+[Client 1] Round 6 - Evaluating...
+[Client 1] Round 6 - Test accuracy: 0.458
+INFO :      Sent reply
+INFO :      
+INFO :      [RUN 0, ROUND ]
+INFO :      Received: train message 4750d830-d8d2-4d83-b630-69cb566d1091
+[Client 1] LLM is deciding on a scaling strategy for variable types...
+[Client 1] LLM created a valid type-based scaling plan.
+[Client 1] Preparing data for config: {'scaling_strategy': 'llm_smart_scale', 'server_round': 7, 'model_type': 'cnn_lstm_attention', 'feature_selection_strategy': 'all'}
+[Data] Loading from: /Users/suhasp/Suhas/Python/Fedrated-Learning-flwr/Client_1/local_data
+[Data] Normal data - Train: (200, 52), Test: (200, 52)
+[Data] Loaded 21 fault types
+[Data] Final shapes - Train: (4400, 52), Test: (4400, 52)
+[Data] Confirmed: Using all 52 TEP features (BALANCED DATASET)
+[Data] BALANCED Training class distribution: {0: 200, 1: 200, 2: 200, 3: 200, 4: 200, 5: 200, 6: 200, 7: 200, 8: 200, 9: 200, 10: 200, 11: 200, 12: 200, 13: 200, 14: 200, 15: 200, 16: 200, 17: 200, 18: 200, 19: 200, 20: 200, 21: 200}
+[Data] Total training samples: 4400, Classes: 22
+[Client 1] Applying user-approved LLM scaling plan...
+[Data] Created 4380 sequences of shape (20, 52) -> (4380,)
+[Data] Created 4380 sequences of shape (20, 52) -> (4380,)
+[Client 1] Data ready.
+[Client 1] Creating cnn_lstm_attention model...
+[Client 1] Model created successfully.
+[Client 1] Round 7 - Training started...
+
+--- LLM SCALING PLAN REVIEW ---
+The LLM has proposed the following scaling plan:
+{
+  "composition": "standard",
+  "flow_rate": "minmax",
+  "level": "minmax",
+  "manipulated_variable": "minmax",
+  "power": "standard",
+  "pressure": "standard",
+  "temperature": "standard"
+}
+Approve this scaling plan? (yes/no): [Agent] Scaling plan approved.
+yes
+[Client 1] Round 7 - Training complete. Accuracy: 0.824, Val Acc: 0.087
+INFO :      Sent reply
+yes
+INFO :      
+INFO :      [RUN 0, ROUND ]
+INFO :      Received: evaluate message 80e934ee-c52f-495f-9016-d57df8e8cd18
+[Client 1] Round 7 - Evaluating...
+[Client 1] Round 7 - Test accuracy: 0.470
+INFO :      Sent reply
+INFO :      
+INFO :      [RUN 0, ROUND ]
+INFO :      Received: train message b1e9dc84-7c4a-4fdc-9e24-2c99e25019ce
+[Client 1] LLM is deciding on a scaling strategy for variable types...
+[Client 1] LLM created a valid type-based scaling plan.
+[Client 1] Preparing data for config: {'scaling_strategy': 'llm_smart_scale', 'server_round': 8, 'model_type': 'cnn_lstm_attention', 'feature_selection_strategy': 'all'}
+[Data] Loading from: /Users/suhasp/Suhas/Python/Fedrated-Learning-flwr/Client_1/local_data
+[Data] Normal data - Train: (200, 52), Test: (200, 52)
+[Data] Loaded 21 fault types
+[Data] Final shapes - Train: (4400, 52), Test: (4400, 52)
+[Data] Confirmed: Using all 52 TEP features (BALANCED DATASET)
+[Data] BALANCED Training class distribution: {0: 200, 1: 200, 2: 200, 3: 200, 4: 200, 5: 200, 6: 200, 7: 200, 8: 200, 9: 200, 10: 200, 11: 200, 12: 200, 13: 200, 14: 200, 15: 200, 16: 200, 17: 200, 18: 200, 19: 200, 20: 200, 21: 200}
+[Data] Total training samples: 4400, Classes: 22
+[Client 1] Applying user-approved LLM scaling plan...
+[Data] Created 4380 sequences of shape (20, 52) -> (4380,)
+[Data] Created 4380 sequences of shape (20, 52) -> (4380,)
+[Client 1] Data ready.
+[Client 1] Creating cnn_lstm_attention model...
+[Client 1] Model created successfully.
+[Client 1] Round 8 - Training started...
+
+--- LLM SCALING PLAN REVIEW ---
+The LLM has proposed the following scaling plan:
+{
+  "composition": "standard",
+  "flow_rate": "minmax",
+  "level": "minmax",
+  "manipulated_variable": "minmax",
+  "power": "standard",
+  "pressure": "standard",
+  "temperature": "standard"
+}
+Approve this scaling plan? (yes/no): [Agent] Scaling plan approved.
+yes
+[Client 1] Round 8 - Training complete. Accuracy: 0.840, Val Acc: 0.087
+INFO :      Sent reply
+E0000 00:00:1749875924.268828 11990441 tcp_posix.cc:594] recvmsg encountered uncommon error: Message too long
+INFO :      
+INFO :      [RUN 0, ROUND ]
+INFO :      Received: evaluate message d6d63403-d5bf-4d8a-9c32-d36c00efc322
+[Client 1] Round 8 - Evaluating...
+[Client 1] Round 8 - Test accuracy: 0.519
+INFO :      Sent reply
+INFO :      
+INFO :      [RUN 0, ROUND ]
+INFO :      Received: train message e182935d-141a-424e-a35d-17adbc240d77
+[Client 1] LLM is deciding on a scaling strategy for variable types...
+[Client 1] LLM created a valid type-based scaling plan.
+[Client 1] Preparing data for config: {'scaling_strategy': 'llm_smart_scale', 'server_round': 9, 'model_type': 'cnn_lstm_attention', 'feature_selection_strategy': 'all'}
+[Data] Loading from: /Users/suhasp/Suhas/Python/Fedrated-Learning-flwr/Client_1/local_data
+[Data] Normal data - Train: (200, 52), Test: (200, 52)
+[Data] Loaded 21 fault types
+[Data] Final shapes - Train: (4400, 52), Test: (4400, 52)
+[Data] Confirmed: Using all 52 TEP features (BALANCED DATASET)
+[Data] BALANCED Training class distribution: {0: 200, 1: 200, 2: 200, 3: 200, 4: 200, 5: 200, 6: 200, 7: 200, 8: 200, 9: 200, 10: 200, 11: 200, 12: 200, 13: 200, 14: 200, 15: 200, 16: 200, 17: 200, 18: 200, 19: 200, 20: 200, 21: 200}
+[Data] Total training samples: 4400, Classes: 22
+[Client 1] Applying user-approved LLM scaling plan...
+[Data] Created 4380 sequences of shape (20, 52) -> (4380,)
+[Data] Created 4380 sequences of shape (20, 52) -> (4380,)
+[Client 1] Data ready.
+[Client 1] Creating cnn_lstm_attention model...
+
+--- LLM SCALING PLAN REVIEW ---
+The LLM has proposed the following scaling plan:
+{
+  "composition": "standard",
+  "flow_rate": "minmax",
+  "level": "minmax",
+  "manipulated_variable": "minmax",
+  "power": "standard",
+  "pressure": "standard",
+  "temperature": "standard"
+}
+Approve this scaling plan? (yes/no): [Agent] Scaling plan approved.
+[Client 1] Model created successfully.
+[Client 1] Round 9 - Training started...
+yes
+[Client 1] Round 9 - Training complete. Accuracy: 0.832, Val Acc: 0.087
+INFO :      Sent reply
+E0000 00:00:1749875984.197728 11990439 tcp_posix.cc:594] recvmsg encountered uncommon error: Message too long
+INFO :      
+INFO :      [RUN 0, ROUND ]
+INFO :      Received: evaluate message 688e18e7-fa01-471e-97b4-4dce013ec1a9
+[Client 1] Round 9 - Evaluating...
+[Client 1] Round 9 - Test accuracy: 0.526
+INFO :      Sent reply
+INFO :      
+INFO :      [RUN 0, ROUND ]
+INFO :      Received: train message ca1f8dab-1624-4e2e-9cdd-9efd2bb92e87
+[Client 1] LLM is deciding on a scaling strategy for variable types...
+[Client 1 WARNING] LLM scaling failed (LLM did not return a valid plan for variable types.).
+[Client 1] Preparing data for config: {'scaling_strategy': 'llm_smart_scale', 'server_round': 10, 'model_type': 'cnn_lstm_attention', 'feature_selection_strategy': 'all'}
+[Data] Loading from: /Users/suhasp/Suhas/Python/Fedrated-Learning-flwr/Client_1/local_data
+[Data] Normal data - Train: (200, 52), Test: (200, 52)
+[Data] Loaded 21 fault types
+[Data] Final shapes - Train: (4400, 52), Test: (4400, 52)
+[Data] Confirmed: Using all 52 TEP features (BALANCED DATASET)
+[Data] BALANCED Training class distribution: {0: 200, 1: 200, 2: 200, 3: 200, 4: 200, 5: 200, 6: 200, 7: 200, 8: 200, 9: 200, 10: 200, 11: 200, 12: 200, 13: 200, 14: 200, 15: 200, 16: 200, 17: 200, 18: 200, 19: 200, 20: 200, 21: 200}
+[Data] Total training samples: 4400, Classes: 22
+[Client 1] No LLM plan approved. Applying StandardScaler to all features as a fallback.
+[Data] Created 4380 sequences of shape (20, 52) -> (4380,)
+[Data] Created 4380 sequences of shape (20, 52) -> (4380,)
+[Client 1] Data ready.
+[Client 1] Creating cnn_lstm_attention model...
+[Client 1] Model created successfully.
+[Client 1] Round 10 - Training started...
+[Client 1] Round 10 - Training complete. Accuracy: 0.851, Val Acc: 0.087
+INFO :      Sent reply
+E0000 00:00:1749876052.701835 11990439 tcp_posix.cc:594] recvmsg encountered uncommon error: Message too long
+INFO :      
+INFO :      [RUN 0, ROUND ]
+INFO :      Received: evaluate message fcd6c913-3151-498c-8a78-d540f5694469
+[Client 1] Round 10 - Evaluating...
+[Client 1] Round 10 - Test accuracy: 0.369
+INFO :      Sent reply
+INFO :      
+INFO :      [RUN 0, ROUND ]
+INFO :      Received: reconnect message 09c72186-3eca-455b-8aa9-92a55753ce15
+INFO :      Disconnect and shut down
+
+
+
+
+
+(client_2) (base) suhasp@Macbook-Air-M1 Client_2 % python3 Client.py --client_id 2
+=== Starting Client 2 ===
+
+=== Client 2 Ready ===
+Waiting for training requests...
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1749875475.291664 11990644 fork_posix.cc:75] Other threads are currently calling into gRPC, skipping fork() handlers
+INFO :      
+INFO :      [RUN 0, ROUND ]
+INFO :      Received: train message 674ebe4e-9556-41e6-88f0-088c4d7c6454
+
+*** TRAINING REQUEST RECEIVED ***
+Start training? (yes/no): yes
+[Client 2] Training approved.
+[Client 2] LLM is deciding on a scaling strategy for variable types...
+[LLM] Loading local TinyLlama model... This may take a moment.
+[LLM] Model loaded successfully.
+[Client 2] LLM created a valid type-based scaling plan.
+[Client 2] Preparing data for config: {'scaling_strategy': 'llm_smart_scale', 'server_round': 1, 'model_type': 'cnn_lstm_attention', 'feature_selection_strategy': 'all'}
+[Data] Loading from: /Users/suhasp/Suhas/Python/Fedrated-Learning-flwr/Client_2/local_data
+[Data] Normal data - Train: (200, 52), Test: (200, 52)
+[Data] Loaded 21 fault types
+[Data] Final shapes - Train: (4400, 52), Test: (4400, 52)
+[Data] Confirmed: Using all 52 TEP features (BALANCED DATASET)
+[Data] BALANCED Training class distribution: {0: 200, 1: 200, 2: 200, 3: 200, 4: 200, 5: 200, 6: 200, 7: 200, 8: 200, 9: 200, 10: 200, 11: 200, 12: 200, 13: 200, 14: 200, 15: 200, 16: 200, 17: 200, 18: 200, 19: 200, 20: 200, 21: 200}
+[Data] Total training samples: 4400, Classes: 22
+[Client 2] Applying user-approved LLM scaling plan...
+[Data] Created 4380 sequences of shape (20, 52) -> (4380,)
+[Data] Created 4380 sequences of shape (20, 52) -> (4380,)
+[Client 2] Data ready.
+[Client 2] Creating cnn_lstm_attention model...
+[Client 2] Model created successfully.
+[Client 2] Round 1 - Training started...
+
+--- LLM SCALING PLAN REVIEW ---
+The LLM has proposed the following scaling plan:
+{
+  "composition": "standard",
+  "flow_rate": "minmax",
+  "level": "minmax",
+  "manipulated_variable": "minmax",
+  "power": "standard",
+  "pressure": "standard",
+  "temperature": "standard"
+}
+Approve this scaling plan? (yes/no): yes
+[Agent] Scaling plan approved.
+yes
+[Client 2] Round 1 - Training complete. Accuracy: 0.661, Val Acc: 0.087
+INFO :      Sent reply
+INFO :      
+INFO :      [RUN 0, ROUND ]
+INFO :      Received: evaluate message 23e04836-b6e5-44a9-86e7-dc09bd504397
+[Client 2] Round 1 - Evaluating...
+[Client 2] Round 1 - Test accuracy: 0.213
+INFO :      Sent reply
+INFO :      
+INFO :      [RUN 0, ROUND ]
+INFO :      Received: train message 23065c80-3315-400f-bfd9-30d19e966482
+[Client 2] LLM is deciding on a scaling strategy for variable types...
+[Client 2 WARNING] LLM scaling failed (LLM did not return a valid plan for variable types.).
+[Client 2] Preparing data for config: {'scaling_strategy': 'llm_smart_scale', 'server_round': 2, 'model_type': 'cnn_lstm_attention', 'feature_selection_strategy': 'all'}
+[Data] Loading from: /Users/suhasp/Suhas/Python/Fedrated-Learning-flwr/Client_2/local_data
+[Data] Normal data - Train: (200, 52), Test: (200, 52)
+[Data] Loaded 21 fault types
+[Data] Final shapes - Train: (4400, 52), Test: (4400, 52)
+[Data] Confirmed: Using all 52 TEP features (BALANCED DATASET)
+[Data] BALANCED Training class distribution: {0: 200, 1: 200, 2: 200, 3: 200, 4: 200, 5: 200, 6: 200, 7: 200, 8: 200, 9: 200, 10: 200, 11: 200, 12: 200, 13: 200, 14: 200, 15: 200, 16: 200, 17: 200, 18: 200, 19: 200, 20: 200, 21: 200}
+[Data] Total training samples: 4400, Classes: 22
+[Client 2] No LLM plan approved. Applying StandardScaler to all features as a fallback.
+[Data] Created 4380 sequences of shape (20, 52) -> (4380,)
+[Data] Created 4380 sequences of shape (20, 52) -> (4380,)
+[Client 2] Data ready.
+[Client 2] Creating cnn_lstm_attention model...
+[Client 2] Model created successfully.
+[Client 2] Round 2 - Training started...
+[Client 2] Round 2 - Training complete. Accuracy: 0.731, Val Acc: 0.087
+INFO :      Sent reply
+INFO :      
+INFO :      [RUN 0, ROUND ]
+INFO :      Received: evaluate message 592408cd-3501-4e96-a828-b8df2cb2d705
+[Client 2] Round 2 - Evaluating...
+[Client 2] Round 2 - Test accuracy: 0.303
+INFO :      Sent reply
+INFO :      
+INFO :      [RUN 0, ROUND ]
+INFO :      Received: train message 402a4793-0c83-4228-929b-3621799ee573
+[Client 2] LLM is deciding on a scaling strategy for variable types...
+[Client 2] LLM created a valid type-based scaling plan.
+[Client 2] Preparing data for config: {'scaling_strategy': 'llm_smart_scale', 'server_round': 3, 'model_type': 'cnn_lstm_attention', 'feature_selection_strategy': 'all'}
+[Data] Loading from: /Users/suhasp/Suhas/Python/Fedrated-Learning-flwr/Client_2/local_data
+[Data] Normal data - Train: (200, 52), Test: (200, 52)
+[Data] Loaded 21 fault types
+[Data] Final shapes - Train: (4400, 52), Test: (4400, 52)
+[Data] Confirmed: Using all 52 TEP features (BALANCED DATASET)
+[Data] BALANCED Training class distribution: {0: 200, 1: 200, 2: 200, 3: 200, 4: 200, 5: 200, 6: 200, 7: 200, 8: 200, 9: 200, 10: 200, 11: 200, 12: 200, 13: 200, 14: 200, 15: 200, 16: 200, 17: 200, 18: 200, 19: 200, 20: 200, 21: 200}
+[Data] Total training samples: 4400, Classes: 22
+[Client 2] Applying user-approved LLM scaling plan...
+[Data] Created 4380 sequences of shape (20, 52) -> (4380,)
+[Data] Created 4380 sequences of shape (20, 52) -> (4380,)
+[Client 2] Data ready.
+[Client 2] Creating cnn_lstm_attention model...
+[Client 2] Model created successfully.
+[Client 2] Round 3 - Training started...
+
+--- LLM SCALING PLAN REVIEW ---
+The LLM has proposed the following scaling plan:
+{
+  "composition": "standard",
+  "flow_rate": "minmax",
+  "level": "minmax",
+  "manipulated_variable": "minmax",
+  "power": "standard",
+  "pressure": "standard",
+  "temperature": "standard"
+}
+Approve this scaling plan? (yes/no): [Agent] Scaling plan approved.
+yes
+[Client 2] Round 3 - Training complete. Accuracy: 0.701, Val Acc: 0.087
+INFO :      Sent reply
+INFO :      
+INFO :      [RUN 0, ROUND ]
+INFO :      Received: evaluate message 1868097d-06f5-421f-9420-7642a60cd51a
+[Client 2] Round 3 - Evaluating...
+yes
+[Client 2] Round 3 - Test accuracy: 0.277
+INFO :      Sent reply
+INFO :      
+INFO :      [RUN 0, ROUND ]
+INFO :      Received: train message ae932356-75a4-453c-ac76-8f394db42852
+[Client 2] LLM is deciding on a scaling strategy for variable types...
+[Client 2] LLM created a valid type-based scaling plan.
+[Client 2] Preparing data for config: {'scaling_strategy': 'llm_smart_scale', 'server_round': 4, 'model_type': 'cnn_lstm_attention', 'feature_selection_strategy': 'all'}
+[Data] Loading from: /Users/suhasp/Suhas/Python/Fedrated-Learning-flwr/Client_2/local_data
+[Data] Normal data - Train: (200, 52), Test: (200, 52)
+[Data] Loaded 21 fault types
+[Data] Final shapes - Train: (4400, 52), Test: (4400, 52)
+[Data] Confirmed: Using all 52 TEP features (BALANCED DATASET)
+[Data] BALANCED Training class distribution: {0: 200, 1: 200, 2: 200, 3: 200, 4: 200, 5: 200, 6: 200, 7: 200, 8: 200, 9: 200, 10: 200, 11: 200, 12: 200, 13: 200, 14: 200, 15: 200, 16: 200, 17: 200, 18: 200, 19: 200, 20: 200, 21: 200}
+[Data] Total training samples: 4400, Classes: 22
+[Client 2] Applying user-approved LLM scaling plan...
+[Data] Created 4380 sequences of shape (20, 52) -> (4380,)
+[Data] Created 4380 sequences of shape (20, 52) -> (4380,)
+[Client 2] Data ready.
+[Client 2] Creating cnn_lstm_attention model...
+
+--- LLM SCALING PLAN REVIEW ---
+The LLM has proposed the following scaling plan:
+{
+  "composition": "standard",
+  "flow_rate": "minmax",
+  "level": "minmax",
+  "manipulated_variable": "minmax",
+  "power": "standard",
+  "pressure": "standard",
+  "temperature": "standard"
+}
+Approve this scaling plan? (yes/no): [Agent] Scaling plan approved.
+[Client 2] Model created successfully.
+[Client 2] Round 4 - Training started...
+yes
+[Client 2] Round 4 - Training complete. Accuracy: 0.763, Val Acc: 0.087
+INFO :      Sent reply
+E0000 00:00:1749875695.053127 11990695 tcp_posix.cc:594] recvmsg encountered uncommon error: Message too long
+INFO :      
+INFO :      [RUN 0, ROUND ]
+INFO :      Received: evaluate message 842ed7d2-3135-4799-b8a8-b6a02feb12d4
+[Client 2] Round 4 - Evaluating...
+[Client 2] Round 4 - Test accuracy: 0.396
+INFO :      Sent reply
+INFO :      
+INFO :      [RUN 0, ROUND ]
+INFO :      Received: train message 6547da1e-b107-49f7-b0a9-9bb385f81894
+[Client 2] LLM is deciding on a scaling strategy for variable types...
+[Client 2] LLM created a valid type-based scaling plan.
+[Client 2] Preparing data for config: {'scaling_strategy': 'llm_smart_scale', 'server_round': 5, 'model_type': 'cnn_lstm_attention', 'feature_selection_strategy': 'all'}
+[Data] Loading from: /Users/suhasp/Suhas/Python/Fedrated-Learning-flwr/Client_2/local_data
+[Data] Normal data - Train: (200, 52), Test: (200, 52)
+
+--- LLM SCALING PLAN REVIEW ---
+The LLM has proposed the following scaling plan:
+{
+  "composition": "standard",
+  "flow_rate": "minmax",
+  "level": "minmax",
+  "manipulated_variable": "minmax",
+  "power": "standard",
+  "pressure": "standard",
+  "temperature": "standard"
+}
+Approve this scaling plan? (yes/no): [Agent] Scaling plan approved.
+[Data] Loaded 21 fault types
+[Data] Final shapes - Train: (4400, 52), Test: (4400, 52)
+[Data] Confirmed: Using all 52 TEP features (BALANCED DATASET)
+[Data] BALANCED Training class distribution: {0: 200, 1: 200, 2: 200, 3: 200, 4: 200, 5: 200, 6: 200, 7: 200, 8: 200, 9: 200, 10: 200, 11: 200, 12: 200, 13: 200, 14: 200, 15: 200, 16: 200, 17: 200, 18: 200, 19: 200, 20: 200, 21: 200}
+[Data] Total training samples: 4400, Classes: 22
+[Client 2] Applying user-approved LLM scaling plan...
+[Data] Created 4380 sequences of shape (20, 52) -> (4380,)
+[Data] Created 4380 sequences of shape (20, 52) -> (4380,)
+[Client 2] Data ready.
+[Client 2] Creating cnn_lstm_attention model...
+[Client 2] Model created successfully.
+[Client 2] Round 5 - Training started...
+[Client 2] Round 5 - Training complete. Accuracy: 0.770, Val Acc: 0.087
+INFO :      Sent reply
+INFO :      
+INFO :      [RUN 0, ROUND ]
+INFO :      Received: evaluate message 2ab2fdb1-9c9a-4212-862c-2eedff6785ab
+[Client 2] Round 5 - Evaluating...
+[Client 2] Round 5 - Test accuracy: 0.452
+INFO :      Sent reply
+INFO :      
+INFO :      [RUN 0, ROUND ]
+INFO :      Received: train message 4b838b1b-5d93-47a6-a367-f794adfab202
+[Client 2] LLM is deciding on a scaling strategy for variable types...
+[Client 2] LLM created a valid type-based scaling plan.
+[Client 2] Preparing data for config: {'scaling_strategy': 'llm_smart_scale', 'server_round': 6, 'model_type': 'cnn_lstm_attention', 'feature_selection_strategy': 'all'}
+[Data] Loading from: /Users/suhasp/Suhas/Python/Fedrated-Learning-flwr/Client_2/local_data
+[Data] Normal data - Train: (200, 52), Test: (200, 52)
+[Data] Loaded 21 fault types
+[Data] Final shapes - Train: (4400, 52), Test: (4400, 52)
+[Data] Confirmed: Using all 52 TEP features (BALANCED DATASET)
+[Data] BALANCED Training class distribution: {0: 200, 1: 200, 2: 200, 3: 200, 4: 200, 5: 200, 6: 200, 7: 200, 8: 200, 9: 200, 10: 200, 11: 200, 12: 200, 13: 200, 14: 200, 15: 200, 16: 200, 17: 200, 18: 200, 19: 200, 20: 200, 21: 200}
+[Data] Total training samples: 4400, Classes: 22
+[Client 2] Applying user-approved LLM scaling plan...
+[Data] Created 4380 sequences of shape (20, 52) -> (4380,)
+[Data] Created 4380 sequences of shape (20, 52) -> (4380,)
+[Client 2] Data ready.
+[Client 2] Creating cnn_lstm_attention model...
+
+--- LLM SCALING PLAN REVIEW ---
+The LLM has proposed the following scaling plan:
+{
+  "composition": "standard",
+  "flow_rate": "minmax",
+  "level": "minmax",
+  "manipulated_variable": "minmax",
+  "power": "standard",
+  "pressure": "standard",
+  "temperature": "standard"
+}
+Approve this scaling plan? (yes/no): [Agent] Scaling plan approved.
+[Client 2] Model created successfully.
+[Client 2] Round 6 - Training started...
+yes
+[Client 2] Round 6 - Training complete. Accuracy: 0.780, Val Acc: 0.087
+INFO :      Sent reply
+INFO :      
+INFO :      [RUN 0, ROUND ]
+INFO :      Received: evaluate message 7be0c07a-f6f7-43ae-9b10-829eb2f89bc1
+[Client 2] Round 6 - Evaluating...
+[Client 2] Round 6 - Test accuracy: 0.464
+INFO :      Sent reply
+INFO :      
+INFO :      [RUN 0, ROUND ]
+INFO :      Received: train message 35c0b8c8-4ae2-49d7-b32f-19313178f299
+[Client 2] LLM is deciding on a scaling strategy for variable types...
+[Client 2] LLM created a valid type-based scaling plan.
+[Client 2] Preparing data for config: {'scaling_strategy': 'llm_smart_scale', 'server_round': 7, 'model_type': 'cnn_lstm_attention', 'feature_selection_strategy': 'all'}
+[Data] Loading from: /Users/suhasp/Suhas/Python/Fedrated-Learning-flwr/Client_2/local_data
+[Data] Normal data - Train: (200, 52), Test: (200, 52)
+[Data] Loaded 21 fault types
+[Data] Final shapes - Train: (4400, 52), Test: (4400, 52)
+[Data] Confirmed: Using all 52 TEP features (BALANCED DATASET)
+[Data] BALANCED Training class distribution: {0: 200, 1: 200, 2: 200, 3: 200, 4: 200, 5: 200, 6: 200, 7: 200, 8: 200, 9: 200, 10: 200, 11: 200, 12: 200, 13: 200, 14: 200, 15: 200, 16: 200, 17: 200, 18: 200, 19: 200, 20: 200, 21: 200}
+[Data] Total training samples: 4400, Classes: 22
+[Client 2] Applying user-approved LLM scaling plan...
+[Data] Created 4380 sequences of shape (20, 52) -> (4380,)
+[Data] Created 4380 sequences of shape (20, 52) -> (4380,)
+[Client 2] Data ready.
+[Client 2] Creating cnn_lstm_attention model...
+[Client 2] Model created successfully.
+[Client 2] Round 7 - Training started...
+
+--- LLM SCALING PLAN REVIEW ---
+The LLM has proposed the following scaling plan:
+{
+  "composition": "standard",
+  "flow_rate": "minmax",
+  "level": "minmax",
+  "manipulated_variable": "minmax",
+  "power": "standard",
+  "pressure": "standard",
+  "temperature": "standard"
+}
+Approve this scaling plan? (yes/no): [Agent] Scaling plan approved.
+yes
+[Client 2] Round 7 - Training complete. Accuracy: 0.838, Val Acc: 0.087
+INFO :      Sent reply
+E0000 00:00:1749875876.439554 11990657 tcp_posix.cc:594] recvmsg encountered uncommon error: Message too long
+INFO :      
+INFO :      [RUN 0, ROUND ]
+INFO :      Received: evaluate message 86965a09-23f6-47a4-b280-facce8d8ac31
+[Client 2] Round 7 - Evaluating...
+[Client 2] Round 7 - Test accuracy: 0.459
+INFO :      Sent reply
+INFO :      
+INFO :      [RUN 0, ROUND ]
+INFO :      Received: train message 07ea4d90-9731-4f4e-a996-a851bbfc401d
+[Client 2] LLM is deciding on a scaling strategy for variable types...
+[Client 2] LLM created a valid type-based scaling plan.
+[Client 2] Preparing data for config: {'scaling_strategy': 'llm_smart_scale', 'server_round': 8, 'model_type': 'cnn_lstm_attention', 'feature_selection_strategy': 'all'}
+[Data] Loading from: /Users/suhasp/Suhas/Python/Fedrated-Learning-flwr/Client_2/local_data
+[Data] Normal data - Train: (200, 52), Test: (200, 52)
+[Data] Loaded 21 fault types
+[Data] Final shapes - Train: (4400, 52), Test: (4400, 52)
+[Data] Confirmed: Using all 52 TEP features (BALANCED DATASET)
+[Data] BALANCED Training class distribution: {0: 200, 1: 200, 2: 200, 3: 200, 4: 200, 5: 200, 6: 200, 7: 200, 8: 200, 9: 200, 10: 200, 11: 200, 12: 200, 13: 200, 14: 200, 15: 200, 16: 200, 17: 200, 18: 200, 19: 200, 20: 200, 21: 200}
+[Data] Total training samples: 4400, Classes: 22
+[Client 2] Applying user-approved LLM scaling plan...
+[Data] Created 4380 sequences of shape (20, 52) -> (4380,)
+[Data] Created 4380 sequences of shape (20, 52) -> (4380,)
+[Client 2] Data ready.
+[Client 2] Creating cnn_lstm_attention model...
+[Client 2] Model created successfully.
+[Client 2] Round 8 - Training started...
+
+--- LLM SCALING PLAN REVIEW ---
+The LLM has proposed the following scaling plan:
+{
+  "composition": "standard",
+  "flow_rate": "minmax",
+  "level": "minmax",
+  "manipulated_variable": "minmax",
+  "power": "standard",
+  "pressure": "standard",
+  "temperature": "standard"
+}
+Approve this scaling plan? (yes/no): [Agent] Scaling plan approved.
+yes
+[Client 2] Round 8 - Training complete. Accuracy: 0.825, Val Acc: 0.087
+INFO :      Sent reply
+E0000 00:00:1749875924.259431 11990657 tcp_posix.cc:594] recvmsg encountered uncommon error: Message too long
+INFO :      
+INFO :      [RUN 0, ROUND ]
+INFO :      Received: evaluate message 36c0b20d-ae89-42b2-82a2-e96b8632b503
+[Client 2] Round 8 - Evaluating...
+[Client 2] Round 8 - Test accuracy: 0.503
+INFO :      Sent reply
+INFO :      
+INFO :      [RUN 0, ROUND ]
+INFO :      Received: train message 0c7e02b1-349c-48ca-a405-3b6847066aad
+[Client 2] LLM is deciding on a scaling strategy for variable types...
+[Client 2] LLM created a valid type-based scaling plan.
+[Client 2] Preparing data for config: {'scaling_strategy': 'llm_smart_scale', 'server_round': 9, 'model_type': 'cnn_lstm_attention', 'feature_selection_strategy': 'all'}
+[Data] Loading from: /Users/suhasp/Suhas/Python/Fedrated-Learning-flwr/Client_2/local_data
+[Data] Normal data - Train: (200, 52), Test: (200, 52)
+[Data] Loaded 21 fault types
+[Data] Final shapes - Train: (4400, 52), Test: (4400, 52)
+[Data] Confirmed: Using all 52 TEP features (BALANCED DATASET)
+[Data] BALANCED Training class distribution: {0: 200, 1: 200, 2: 200, 3: 200, 4: 200, 5: 200, 6: 200, 7: 200, 8: 200, 9: 200, 10: 200, 11: 200, 12: 200, 13: 200, 14: 200, 15: 200, 16: 200, 17: 200, 18: 200, 19: 200, 20: 200, 21: 200}
+[Data] Total training samples: 4400, Classes: 22
+[Client 2] Applying user-approved LLM scaling plan...
+[Data] Created 4380 sequences of shape (20, 52) -> (4380,)
+[Data] Created 4380 sequences of shape (20, 52) -> (4380,)
+[Client 2] Data ready.
+[Client 2] Creating cnn_lstm_attention model...
+[Client 2] Model created successfully.
+[Client 2] Round 9 - Training started...
+
+--- LLM SCALING PLAN REVIEW ---
+The LLM has proposed the following scaling plan:
+{
+  "composition": "standard",
+  "flow_rate": "minmax",
+  "level": "minmax",
+  "manipulated_variable": "minmax",
+  "power": "standard",
+  "pressure": "standard",
+  "temperature": "standard"
+}
+Approve this scaling plan? (yes/no): [Agent] Scaling plan approved.
+yes
+[Client 2] Round 9 - Training complete. Accuracy: 0.829, Val Acc: 0.087
+INFO :      Sent reply
+E0000 00:00:1749875984.194131 11990695 tcp_posix.cc:594] recvmsg encountered uncommon error: Message too long
+INFO :      
+INFO :      [RUN 0, ROUND ]
+INFO :      Received: evaluate message 0b92f3e3-c0a4-48c6-a0f7-e0a7214bdd2e
+[Client 2] Round 9 - Evaluating...
+[Client 2] Round 9 - Test accuracy: 0.513
+INFO :      Sent reply
+INFO :      
+INFO :      [RUN 0, ROUND ]
+INFO :      Received: train message 5e77b1ec-24de-40bb-afd4-3bc56ab1b52c
+[Client 2] LLM is deciding on a scaling strategy for variable types...
+[Client 2 WARNING] LLM scaling failed (LLM did not return a valid plan for variable types.).
+[Client 2] Preparing data for config: {'scaling_strategy': 'llm_smart_scale', 'server_round': 10, 'model_type': 'cnn_lstm_attention', 'feature_selection_strategy': 'all'}
+[Data] Loading from: /Users/suhasp/Suhas/Python/Fedrated-Learning-flwr/Client_2/local_data
+[Data] Normal data - Train: (200, 52), Test: (200, 52)
+[Data] Loaded 21 fault types
+[Data] Final shapes - Train: (4400, 52), Test: (4400, 52)
+[Data] Confirmed: Using all 52 TEP features (BALANCED DATASET)
+[Data] BALANCED Training class distribution: {0: 200, 1: 200, 2: 200, 3: 200, 4: 200, 5: 200, 6: 200, 7: 200, 8: 200, 9: 200, 10: 200, 11: 200, 12: 200, 13: 200, 14: 200, 15: 200, 16: 200, 17: 200, 18: 200, 19: 200, 20: 200, 21: 200}
+[Data] Total training samples: 4400, Classes: 22
+[Client 2] No LLM plan approved. Applying StandardScaler to all features as a fallback.
+[Data] Created 4380 sequences of shape (20, 52) -> (4380,)
+[Data] Created 4380 sequences of shape (20, 52) -> (4380,)
+[Client 2] Data ready.
+[Client 2] Creating cnn_lstm_attention model...
+[Client 2] Model created successfully.
+[Client 2] Round 10 - Training started...
+[Client 2] Round 10 - Training complete. Accuracy: 0.819, Val Acc: 0.087
+INFO :      Sent reply
+E0000 00:00:1749876052.701380 11990695 tcp_posix.cc:594] recvmsg encountered uncommon error: Message too long
+INFO :      
+INFO :      [RUN 0, ROUND ]
+INFO :      Received: evaluate message ca67a03b-85c6-45cf-9f08-dccff3542de1
+[Client 2] Round 10 - Evaluating...
+[Client 2] Round 10 - Test accuracy: 0.367
+INFO :      Sent reply
+INFO :      
+INFO :      [RUN 0, ROUND ]
+INFO :      Received: reconnect message b9cd5eea-928a-47df-adda-0d096d037f57
+INFO :      Disconnect and shut down
+
