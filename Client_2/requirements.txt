@@ -3,4 +3,5 @@ numpy
 pandas
 scikit-learn
 torch
-ctransformers[metal] 
+ctransformers[metal] #/cuda/cpu
+tensorflow
